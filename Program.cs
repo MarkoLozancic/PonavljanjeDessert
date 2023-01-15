@@ -6,68 +6,37 @@ using System.Threading.Tasks;
 
 namespace PonavljanjeDessert
 {
-    class Dessert
-    {
-        private string name;
-        private double weight;
-        private int calories;
-
-        public Dessert(string name, double weight, int calories)
-        {
-            this.Name = name;
-            this.Weight = weight;
-            this.Calories = calories;
-        }
-
-        public string Name { get => name; set => name = value; }
-        public double Weight { get => weight; set => weight = value; }
-        public int Calories { get => calories; set => calories = value; }
-
-
-        public override string ToString()
-        {
-            return name + ":  weight - " + weight + "g, calories - " + calories + "kcal";
-        }
-
-        public string getDessertType()
-        {
-            return "dessert";
-        }
-    }
-    class Cake:Dessert
-    {
-        private bool containsGluten;
-        private string cakeType;
-
-        public bool ContainsGluten { get => containsGluten; set => containsGluten = value; }
-        public string CakeType { get => cakeType; set => cakeType = value; }
-
-        public override string ToString()
-        {
-            return Name + ":  weight - " + Weight + "g, calories - " + Calories
-                + "kcal, contains gluten - " + ContainsGluten + ", Cake type - " + CakeType  ;
-        }
-
-        public string getDessertType()
-        {
-            return "Cake";
-        }
-    }
-    
-    class IceCream:Dessert
-    {
-        private string flavour;
-        private string color;
-
-       
-
-        public string Flavour { get => flavour; set => flavour = value; }
-        public string Color { get => color; set => color = value; }
-    }
     internal class Program
     {
         static void Main(string[] args)
         {
+            
+            Console.WriteLine("Unesi svoj omiljeni kolac( ime, tezina, kalorije, gluten, tip kolaca):\n");
+            string ime = Console.ReadLine();
+            int tezina = Convert.ToInt32(Console.ReadLine());
+            int kalorije = Convert.ToInt32(Console.ReadLine());
+            string unos = Console.ReadLine();
+            bool gluten;
+            if (unos == "yes" || unos == "da" || unos == "1")
+                gluten = true;
+            else
+                gluten = false;
+            string tip = Console.ReadLine();
+            Cake kolac = new Cake(ime,tezina,kalorije,gluten,tip);
+
+            Console.WriteLine("Unesi svoj omiljeni sladoled ( ime, tezina, kalorije, okus i boja ) :\n");
+             ime = Console.ReadLine();
+            tezina = Convert.ToInt32(Console.ReadLine());
+            kalorije = Convert.ToInt32(Console.ReadLine());
+            string okus = Console.ReadLine();
+            string boja = Console.ReadLine();
+            
+            IceCream sladoled = new IceCream(ime, tezina, kalorije, okus, boja);
         }
     }
 }
+
+
+
+
+
